@@ -26,7 +26,7 @@ import torchvision.transforms as transforms
 import torch.optim as optim
 import torch
 BC=64
-XLBC=0.001
+XLBC=0.01
 Ln=0.5
 LS=200
 class LeNet(nn.Module):
@@ -66,7 +66,6 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=XLBC)
 params=list(net.parameters())
 for epoch in range(LS):
-    running_loss = 0
     for i, data in enumerate(train_loader):
         net.zero_grad()
         inputs, labels = data
@@ -85,5 +84,4 @@ for epoch in range(LS):
             with torch.no_grad():
                 n=params[2][ll,:]
                 params[2][ll,:]=func(n,Ln)
-        
      
