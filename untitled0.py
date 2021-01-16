@@ -17,10 +17,10 @@ import cv2
 train_dataset = datasets.MNIST(root='./data/',train=True,transform=transforms.ToTensor(),download=True)
 test_dataset = datasets.MNIST(root='./data/',train=False,transform=transforms.ToTensor(),download=True)
 train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
-                                           batch_size=64,
+                                           batch_size=BC,
                                            shuffle=True)
 test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
-                                          batch_size=64,
+                                          batch_size=BC,
                                           shuffle=False)
 class Model(nn.Module):
     def __init__(self):
@@ -36,7 +36,7 @@ class Model(nn.Module):
 mod=Model()
 mod=mod.cuda()
 loss=nn.CrossEntropyLoss()
-optimizer=optim.SGD(mod.parameters(),lr=0.03)
+optimizer=optim.SGD(mod.parameters(),lr=XLBC)
 losses=[]
 acces=[]
 eval_losses=[]
@@ -49,7 +49,7 @@ def func(a,b):
         c=a
         return(c)
 params=list(mod.parameters())
-for i in range(50):
+for i in range(LS):
     train_loss=0
     train_acc=0
     mod.train()
@@ -67,9 +67,9 @@ for i in range(50):
         for ll in range(784):
             with torch.no_grad():
                 n=params[0][ll,:]
-                params[0][ll,:]=func(n,0.2)
-                m=params[0][ll,:]
-                params[2][ll,:]=func(m,0.2)
+                params[0][ll,:]=func(n,Ln)
+                m=params[2][ll,:]
+                params[2][ll,:]=func(m,Ln)
         train_loss+=float(lossvalue)
         _,pred=out.max(1)
         num_correct=(pred==label).sum()
