@@ -60,7 +60,7 @@ train_loader = torch.utils.data.DataLoader(train_set,
                                            batch_size=BC, shuffle=True, num_workers=2)
 test_set = torchvision.datasets.CIFAR10(root="./data",
                                         train=False, download=True, transform=transform)
-test_loader = torch.utils.data.DataLoader(train_set,
+test_loader = torch.utils.data.DataLoader(test_set,
                                           batch_size=BC, shuffle=False, num_workers=2)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=XLBC)
