@@ -25,8 +25,10 @@ import torchvision
 import torchvision.transforms as transforms
 import torch.optim as optim
 import torch
-
-
+BC=64
+XLBC=0.001
+Ln=0.5
+LS=200
 class LeNet(nn.Module):
 
     def __init__(self):
@@ -48,7 +50,6 @@ def func(a,b):
     else:
         c=a
         return(c)
-
 net = LeNet()
 net = net.cuda()
 transform = transforms.Compose([transforms.ToTensor(),
@@ -56,15 +57,15 @@ transform = transforms.Compose([transforms.ToTensor(),
 train_set = torchvision.datasets.CIFAR10(root="./data",
                                          train=True, download=True, transform=transform)
 train_loader = torch.utils.data.DataLoader(train_set,
-                                           batch_size=400, shuffle=True, num_workers=2)
+                                           batch_size=BC, shuffle=True, num_workers=2)
 test_set = torchvision.datasets.CIFAR10(root="./data",
                                         train=False, download=True, transform=transform)
 test_loader = torch.utils.data.DataLoader(train_set,
-                                          batch_size=400, shuffle=False, num_workers=2)
+                                          batch_size=BC, shuffle=False, num_workers=2)
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(net.parameters(), lr=0.001)
+optimizer = optim.SGD(net.parameters(), lr=XLBC)
 params=list(net.parameters())
-for epoch in range(20):
+for epoch in range(LS):
     running_loss = 0
     for i, data in enumerate(train_loader):
         net.zero_grad()
@@ -79,10 +80,10 @@ for epoch in range(20):
         for ll in range(32*32*2):
             with torch.no_grad():
                 n=params[0][ll,:]
-                params[0][ll,:]=func(n,1)
+                params[0][ll,:]=func(n,Ln)
         for ll in range(32*32):
             with torch.no_grad():
                 n=params[2][ll,:]
-                params[2][ll,:]=func(n,1)
-        running_loss += train_loss.data
+                params[2][ll,:]=func(n,Ln)
+        
      
