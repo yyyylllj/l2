@@ -29,10 +29,10 @@ BC=64
 XLBC=0.01
 Ln=0.5
 LS=200
-class LeNet(nn.Module):
+class Net(nn.Module):
 
     def __init__(self):
-        super(LeNet, self).__init__()
+        super(Net, self).__init__()
 
         self.fc1 = nn.Linear(32 * 32 * 3, 32 * 32 * 2)
         self.fc2 = nn.Linear(32 * 32 * 2, 32 * 32)
@@ -50,7 +50,7 @@ def func(a,b):
     else:
         c=a
         return(c)
-net = LeNet()
+net = Net()
 net = net.cuda()
 transform = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)), ])
@@ -84,14 +84,14 @@ for epoch in range(LS):
             with torch.no_grad():
                 n=params[2][ll,:]
                 params[2][ll,:]=func(n,Ln)
-#torch.save(net,'')
+#torch.save(net.state_dict(),'')
 test_acc=0
 for x,y in test_loader:
-    x=x.cuda()
-    y=y.cuda()
     x=x.view(-1,32*32*3)
+    x=x.cuda()
+    y=y.cuda()    
     out=net(x)
-    _, pred = output.max(1)
-    num_correct = (pred == labels).sum()
+    _, pred = out.max(1)
+    num_correct = (pred == y).sum()
     test_acc += int(num_correct)
 print(test_acc/10000)
