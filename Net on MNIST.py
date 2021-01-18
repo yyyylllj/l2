@@ -92,8 +92,8 @@ for x,y in test_loader:
   y=y.cuda()
   out=mod(x)
    _,pred=out.max(1)
-  num_correct=(pred==label).sum()
-  acc=int(num_correct)/X.shape[0]
+  num_correct=(pred==y).sum()
+  acc=int(num_correct)
   test_acc+=acc
 print(test_acc/10000)
 #noise=torch.load('')
@@ -105,7 +105,7 @@ print(test_acc/10000)
 #  y=y.cuda()
 #  out=mod(x)
 #   _,pred=out.max(1)
-#  num_correct=(pred==label).sum()
-#  acc=int(num_correct)/X.shape[0]
+#  num_correct=(pred==y).sum()
+#  acc=int(num_correct)
 #  noisetest_acc+=acc
 #print(noisetest_acc/10000)
