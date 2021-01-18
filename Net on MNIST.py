@@ -96,7 +96,7 @@ for x,y in test_loader:
   acc=int(num_correct)/X.shape[0]
   test_acc+=acc
 print(test_acc/10000)
-#torch.load('')
+#noise=torch.load('')
 #noisetest_loader = torch.utils.data.DataLoader(dataset=noise,batch_size=BC, shuffle=False)
 #noisetest_acc=0
 #for x,y in noisetest_loader:      
