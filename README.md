@@ -27,9 +27,9 @@ You can change one parameters in this file.
 
 L_n:the level of noise.
 
-Then you should use the line 99-111 in file "Net on MNIST.py".
+Then you should use the line 89-101 in file "Net on MNIST.py".
 
-At line 99, input path which you save "noise" on.
+At line 89, input path which you save "noise" on.
 
 recommend:
 
