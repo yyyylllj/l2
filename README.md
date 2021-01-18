@@ -7,7 +7,7 @@ Net on MNIST.py is the code to train a network with L_2,∞normlzation on traini
 
 Their outputs are the accuracy on test set.
 
-If you want to save the parameters of network, use their line-87 and put on the path you want.
+If you want to save the parameters of network, use line-87 of "Net on Cifar10.py" and line-77 of "Net on MNIST.py" and put on the path you want.
 
 You can change four parameters in these two files.
 
