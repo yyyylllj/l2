@@ -84,7 +84,7 @@ for i in range(LS):
     print("i:"+' ' +str(i))
     print("lose:" + ' ' + str(train_loss / len(train_loader)))
     print("accuracy:" + ' '+str(train_acc / len(train_loader)))
-#torch.save(mod,'')
+#torch.save(mod.state_dict(),'')
 test_acc=0
 for x,y in test_loader:      
   x=x.view(-1,784)
@@ -97,7 +97,7 @@ for x,y in test_loader:
   test_acc+=acc
 print(test_acc/10000)
 #torch.load('')
-#noisetest_loader = torch.utils.data.DataLoader(dataset=noise,batch_size=500, shuffle=False)
+#noisetest_loader = torch.utils.data.DataLoader(dataset=noise,batch_size=BC, shuffle=False)
 #noisetest_acc=0
 #for x,y in noisetest_loader:      
 #  x=x.view(-1,784)
