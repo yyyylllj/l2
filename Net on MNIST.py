@@ -96,4 +96,16 @@ for x,y in test_loader:
   acc=int(num_correct)/X.shape[0]
   test_acc+=acc
 print(test_acc/10000)
- 
+#torch.load('')
+#noisetest_loader = torch.utils.data.DataLoader(dataset=noise,batch_size=500, shuffle=False)
+#noisetest_acc=0
+#for x,y in noisetest_loader:      
+#  x=x.view(-1,784)
+#  x=x.cuda()
+#  y=y.cuda()
+#  out=mod(x)
+#   _,pred=out.max(1)
+#  num_correct=(pred==label).sum()
+#  acc=int(num_correct)/X.shape[0]
+#  noisetest_acc+=acc
+#print(noisetest_acc/10000)
