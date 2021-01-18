@@ -73,17 +73,7 @@ for i in range(LS):
                 n=params[0][ll,:]
                 params[0][ll,:]=func(n,Ln)
                 m=params[2][ll,:]
-                params[2][ll,:]=func(m,Ln)
-        train_loss+=float(lossvalue)
-        _,pred=out.max(1)
-        num_correct=(pred==label).sum()
-        acc=int(num_correct)/X.shape[0]
-        train_acc+=acc
-    losses.append(train_loss/len(train_loader))
-    acces.append(train_acc/len(train_loader))
-    print("i:"+' ' +str(i))
-    print("lose:" + ' ' + str(train_loss / len(train_loader)))
-    print("accuracy:" + ' '+str(train_acc / len(train_loader)))
+                params[2][ll,:]=func(m,Ln)       
 #torch.save(mod.state_dict(),'')
 test_acc=0
 for x,y in test_loader:      
