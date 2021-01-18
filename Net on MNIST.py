@@ -87,8 +87,7 @@ for i in range(LS):
 #torch.save(mod,'')
 test_acc=0
 for x,y in test_loader:      
-  x=x.view(-1,784)    
-  x=x+noise*i/10
+  x=x.view(-1,784)
   x=x.cuda()
   y=y.cuda()
   out=mod(x)
