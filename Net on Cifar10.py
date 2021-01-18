@@ -84,4 +84,10 @@ for epoch in range(LS):
             with torch.no_grad():
                 n=params[2][ll,:]
                 params[2][ll,:]=func(n,Ln)
-     
+#torch.save(net,'')
+for x,y in test_loader:
+    x=x.cuda()
+    y=y.cuda()
+    x=x.view(-1,32*32*3)
+    out=net(x)
+    
