@@ -85,9 +85,13 @@ for epoch in range(LS):
                 n=params[2][ll,:]
                 params[2][ll,:]=func(n,Ln)
 #torch.save(net,'')
+test_acc=0
 for x,y in test_loader:
     x=x.cuda()
     y=y.cuda()
     x=x.view(-1,32*32*3)
     out=net(x)
-    
+    _, pred = output.max(1)
+    num_correct = (pred == labels).sum()
+    test_acc += int(num_correct)
+print(test_acc/10000)
