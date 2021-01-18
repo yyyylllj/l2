@@ -21,11 +21,15 @@ LS:hou many turns you want to train
 
 For MNIST, if you want to discuss the accuracy on test set with noise, use file named "noise test.py"
 
+You should input path when you save "noise".
+
 You can change one parameters in this file.
 
 L_n:the level of noise.
 
 Then you should use the line 99-111 in file "Net on MNIST.py".
+
+At line 99, input path which you save "noise" on.
 
 recommend:
 
