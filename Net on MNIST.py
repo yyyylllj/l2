@@ -84,3 +84,17 @@ for i in range(LS):
     print("i:"+' ' +str(i))
     print("lose:" + ' ' + str(train_loss / len(train_loader)))
     print("accuracy:" + ' '+str(train_acc / len(train_loader)))
+#torch.save(mod,'')
+test_acc=0
+for x,y in test_loader:      
+  x=x.view(-1,784)    
+  x=x+noise*i/10
+  x=x.cuda()
+  y=y.cuda()
+  out=mod(x)
+   _,pred=out.max(1)
+  num_correct=(pred==label).sum()
+  acc=int(num_correct)/X.shape[0]
+  test_acc+=acc
+print(test_acc/10000)
+ 
