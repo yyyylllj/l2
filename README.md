@@ -19,6 +19,8 @@ Ln:the upperbound of L_2,∞normlization,you can find in paper
 
 LS:hou many turns you want to train
 
+(We have show a set of appropriate parameters in the each files.)
+
 For MNIST, if you want to discuss the accuracy on test set with noise, use file named "noise test.py"
 
 You should input path when you save "noise".
