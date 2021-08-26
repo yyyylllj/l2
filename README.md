@@ -1,9 +1,11 @@
 # l2
-Run all files on pytorch.
+Run all files on pytorch. Please configure the environment with in the Requirement.txt.
 
 Net on Cifar10.py is the code to train a network with L_2,∞normlzation on trainingset Clfar10.
 
 Net on MNIST.py is the code to train a network with L_2,∞normlzation on trainingset MNIST.
+
+The program can run directly.
 
 Their outputs are the accuracy on test set.
 
@@ -33,9 +35,7 @@ Then you should use the line 89-101 in file "Net on MNIST.py".
 
 At line 89, input path which you save "noise" on.
 
-recommend:
 
-Consider of the instability of algorithm, try small XLBC and increase LS.
 
 
 
