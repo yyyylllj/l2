@@ -5,9 +5,7 @@ Net on Cifar10.py is the code to train a network with L_2,∞normlzation on trai
 
 Net on MNIST.py is the code to train a network with L_2,∞normlzation on trainingset MNIST.
 
-The program can run directly.
-
-Their outputs are the accuracy on test set.
+The program can run directly. Their outputs are the accuracy of each round on test set in the training.
 
 If you want to save the parameters of network, use line-87 of "Net on Cifar10.py" and line-77 of "Net on MNIST.py" and put on the path you want.
 
