@@ -81,7 +81,7 @@ for x,y in test_loader:
   x=x.cuda()
   y=y.cuda()
   out=mod(x)
-   _,pred=out.max(1)
+  _,pred=out.max(1)
   num_correct=(pred==y).sum()
   acc=int(num_correct)
   test_acc+=acc
