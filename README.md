@@ -11,6 +11,8 @@ If you want to save the parameters of network, use line-101 of "Net on Cifar10.p
 
 If you do not want to train, 'mod_MNIST.pt' is a network which had been trained in 'Net on MNIST.py', download it, and use 'Net of MNIST has been trained.py' to test its accuracy.
 
+If you do not want to train, 'mod_CIFAR.pt' is a network which had been trained in 'Net on CIFAR.py', download it, and use 'Net of CIFAR has been trained.py' to test its accuracy.
+
 You can change four parameters in these two files.
 
 BC:the stepsize of trainset,always 64 or 32
