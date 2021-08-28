@@ -15,8 +15,8 @@ from torch.autograd import Variable
 from torch.utils.data import DataLoader
 import cv2
 BC=64
-XLBC=0.01
-Ln=0.2
+XLBC=0.03
+Ln=0.3
 LS=200
 train_dataset = datasets.MNIST(root='./data/',train=True,transform=transforms.ToTensor(),download=True)
 test_dataset = datasets.MNIST(root='./data/',train=False,transform=transforms.ToTensor(),download=True)
@@ -73,19 +73,20 @@ for i in range(LS):
                 n=params[0][ll,:]
                 params[0][ll,:]=func(n,Ln)
                 m=params[2][ll,:]
-                params[2][ll,:]=func(m,Ln)       
-#torch.save(mod.state_dict(),'')
-test_acc=0
-for x,y in test_loader:      
-  x=x.view(-1,784)
-  x=x.cuda()
-  y=y.cuda()
-  out=mod(x)
-  _,pred=out.max(1)
-  num_correct=(pred==y).sum()
-  acc=int(num_correct)
-  test_acc+=acc
-print(test_acc/10000)
+                params[2][ll,:]=func(m,Ln)   
+    test_acc=0
+    mod.eval()
+    for x,y in test_loader:      
+           x=x.view(-1,784)
+           x=x.cuda()
+           y=y.cuda()
+           out=mod(x)
+           _,pred=out.max(1)
+           num_correct=(pred==y).sum()
+           acc=int(num_correct)
+           test_acc+=acc
+    print(test_acc/10000)
+#torch.save(mod.state_dict(),'mod_MNIST.pt')
 #noise=torch.load('')
 #noisetest_loader = torch.utils.data.DataLoader(dataset=noise,batch_size=BC, shuffle=False)
 #noisetest_acc=0
