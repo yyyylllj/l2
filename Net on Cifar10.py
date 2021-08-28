@@ -25,8 +25,9 @@ import torchvision
 import torchvision.transforms as transforms
 import torch.optim as optim
 import torch
+from torch.optim.lr_scheduler import MultiStepLR
 BC=64
-XLBC=0.01
+XLBC=0.04
 Ln=0.5
 LS=200
 class Net(nn.Module):
@@ -66,6 +67,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=XLBC)
 params=list(net.parameters())
 for epoch in range(LS):
+    net.train()
     for i, data in enumerate(train_loader):
         net.zero_grad()
         inputs, labels = data
@@ -84,14 +86,17 @@ for epoch in range(LS):
             with torch.no_grad():
                 n=params[2][ll,:]
                 params[2][ll,:]=func(n,Ln)
-#torch.save(net.state_dict(),'')
-test_acc=0
-for x,y in test_loader:
-    x=x.view(-1,32*32*3)
-    x=x.cuda()
-    y=y.cuda()    
-    out=net(x)
-    _, pred = out.max(1)
-    num_correct = (pred == y).sum()
-    test_acc += int(num_correct)
-print(test_acc/10000)
+    schedulerD.step()
+    test_acc=0
+    net.eval()
+    for x,y in test_loader:
+      x=x.view(-1,32*32*3)
+      x=x.cuda()
+      y=y.cuda()    
+      out=net(x)
+      _, pred = out.max(1)
+      num_correct = (pred == y).sum()
+      test_acc += int(num_correct)
+    print(test_acc/10000)
+#torch.save(net.state_dict(),'mod_CIFAR.pt')
+
