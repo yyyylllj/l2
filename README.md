@@ -5,9 +5,9 @@ Net on MNIST.py is the code to train a network with L_2,∞normlzation on traini
 
 The program can run directly. Their outputs are the accuracy of each round on test set in the training.
 
-If you want to save the parameters of network, use line-101 of "Net on Cifar10.py" and line-89 of "Net on MNIST.py".
+If you want to save the parameters of network, line-89 of "Net on MNIST.py".
 
-If you do not want to train, 'mod_MNIST.pt' is a network which had been trained in 'Net on MNIST.py', download it, and use 'Net of MNIST has been trained.py' to test its accuracy.
+If you do not want to train, 'mod_MNIST.pt' is a network which had been trained in 'Net on MNIST.py'. And you can use 'Net of MNIST has been trained.py' to test its accuracy.
 
 You can change four parameters in these the file.
 
