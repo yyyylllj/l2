@@ -1,8 +1,6 @@
 # l2
 Run all files on pytorch. Please configure the environment with in the Requirement.txt.
 
-Net on Cifar10.py is the code to train a network with L_2,∞normlzation on trainingset Clfar10.
-
 Net on MNIST.py is the code to train a network with L_2,∞normlzation on trainingset MNIST.
 
 The program can run directly. Their outputs are the accuracy of each round on test set in the training.
@@ -11,9 +9,7 @@ If you want to save the parameters of network, use line-101 of "Net on Cifar10.p
 
 If you do not want to train, 'mod_MNIST.pt' is a network which had been trained in 'Net on MNIST.py', download it, and use 'Net of MNIST has been trained.py' to test its accuracy.
 
-If you do not want to train, 'mod_CIFAR.pt' is a network which had been trained in 'Net on CIFAR.py', download it, and use 'Net of CIFAR has been trained.py' to test its accuracy.
-
-You can change four parameters in these two files.
+You can change four parameters in these the file.
 
 BC:the stepsize of trainset,always 64 or 32
 
