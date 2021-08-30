@@ -87,7 +87,7 @@ for i in range(LS):
            test_acc+=acc
     print(test_acc/10000)
 #torch.save(mod.state_dict(),'mod_MNIST.pt')
-#noise=torch.load('')
+#noise=torch.load('noise_test.pth')
 #noisetest_loader = torch.utils.data.DataLoader(dataset=noise,batch_size=BC, shuffle=False)
 #noisetest_acc=0
 #for x,y in noisetest_loader:      
