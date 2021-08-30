@@ -14,4 +14,4 @@ for x,y in test_dataset:
     mc=torch.randn(1,28,28)
     x+=mc*L_n
     noise.append((x,y))
-#torch.save(noise,'')
+#torch.save(noise,'noise_test.pth')
