@@ -23,7 +23,7 @@ If you do not want to train, 'mod_MNIST.pt' is a network which had been trained 
 
 If you want to discuss the accuracy on test set with noise, use file named "noise test.py"
 
-You should input path when you save "noise".
+Maybe you need to input path when you save "noise" in the line 17.
 
 You can change one parameters in this file.
 
@@ -31,7 +31,7 @@ L_n:the level of noise.
 
 Then you should use the line 90-102 in file "Net on MNIST.py".
 
-At line 90, input path which you save "noise" on.
+At line 90, may be you nedd to input path which you save "noise" on.
 
 
 
