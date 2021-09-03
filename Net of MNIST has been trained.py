@@ -7,6 +7,7 @@ import torchvision
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
 import cv2
+BC=100
 train_dataset = datasets.MNIST(root='./data/',train=True,transform=transforms.ToTensor(),download=True)
 test_dataset = datasets.MNIST(root='./data/',train=False,transform=transforms.ToTensor(),download=True)
 train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
