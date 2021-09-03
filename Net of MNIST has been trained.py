@@ -7,10 +7,6 @@ import torchvision
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
 import cv2
-BC=64
-XLBC=0.03
-Ln=0.3
-LS=200
 train_dataset = datasets.MNIST(root='./data/',train=True,transform=transforms.ToTensor(),download=True)
 test_dataset = datasets.MNIST(root='./data/',train=False,transform=transforms.ToTensor(),download=True)
 train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
@@ -33,6 +29,8 @@ class Model(nn.Module):
 mod=Model()
 mod=mod.cuda()
 mod.load_state_dict(torch.load('mod_MNIST.pt'))
+test_acc=0
+mod.eval()
 for x,y in test_loader:      
            x=x.view(-1,784)
            x=x.cuda()
@@ -42,4 +40,4 @@ for x,y in test_loader:
            num_correct=(pred==y).sum()
            acc=int(num_correct)
            test_acc+=acc
-print(test_acc/10000)
+print("accuracy:" + ' ' + str(test_acc / 10000))
