@@ -87,16 +87,3 @@ for i in range(LS):
     print("i:" + ' ' + str(i))
     print("accuracy:" + ' ' + str(test_acc / 10000))    
 #torch.save(mod.state_dict(),'mod_MNIST.pt')
-#noise=torch.load('noise_test.pth')
-#noisetest_loader = torch.utils.data.DataLoader(dataset=noise,batch_size=BC, shuffle=False)
-#noisetest_acc=0
-#for x,y in noisetest_loader:      
-#  x=x.view(-1,784)
-#  x=x.cuda()
-#  y=y.cuda()
-#  out=mod(x)
-#   _,pred=out.max(1)
-#  num_correct=(pred==y).sum()
-#  acc=int(num_correct)
-#  noisetest_acc+=acc
-#print(noisetest_acc/10000)
