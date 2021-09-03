@@ -53,8 +53,7 @@ def func(a,b):
         c=a
         return(c)
 params=list(mod.parameters())
-for i in range(LS):
-    train_loss=0
+for i in range(LS):   
     train_acc=0
     mod.train()
     for j,(X,label) in enumerate(train_loader):
@@ -85,7 +84,8 @@ for i in range(LS):
            num_correct=(pred==y).sum()
            acc=int(num_correct)
            test_acc+=acc
-    print(test_acc/10000)
+    print("i:" + ' ' + str(i))
+    print("accuracy:" + ' ' + str(test_acc / 10000))    
 #torch.save(mod.state_dict(),'mod_MNIST.pt')
 #noise=torch.load('noise_test.pth')
 #noisetest_loader = torch.utils.data.DataLoader(dataset=noise,batch_size=BC, shuffle=False)
